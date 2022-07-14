@@ -1,7 +1,8 @@
 <script context="module">
  export async function load({fetch}) {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const guides = await res.json();
+  //   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const res = await fetch("/guides.json");
+  const {guides} = await res.json();
 
   if (res.ok) {
    return {
@@ -31,10 +32,6 @@
     <a sveltekit:prefetch href={`/guides/${guide.id}`}>{guide.title}</a>
    </li>
   {/each}
-  <li>
-   <a href="/">Guide 1</a>
-   <a href="/">Guide 2</a>
-  </li>
  </ul>
 </div>
 
